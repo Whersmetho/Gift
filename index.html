@@ -8,8 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic" autoplay loop>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
@@ -30,8 +29,9 @@
 
     <section id="letter" class="section hidden">
         <div class="card">
-            <div id="counter"></div> 
+            <div id="counter" style="color: #ffeb12; font-weight: bold; margin-bottom: 15px;"></div>
             <p id="letterText"></p>
+            <button id="btnGoToFlowers" class="hidden" onclick="window.location.href='floresamarillas.html'">Ver mi regalo 🌻</button>
         </div>
     </section>
 
