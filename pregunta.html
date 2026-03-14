@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris... ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- ESTILOS --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0f0f14; /* Fondo oscuro para que resalte */
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            z-index: 10;
+        }
+
+        .main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            color: #ff4d6d;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(255, 77, 109, 0.3);
+        }
+
+        h2 {
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            position: relative;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 50px; /* Espacio entre botones */
+            height: 150px; /* Espacio para que el botón No se mueva */
+        }
+
+        button {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 20;
+        }
+
+        #yesBtn {
+            background: #ff4d6d;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        #noBtn {
+            background: #444;
+            color: #ccc;
+            position: relative; /* Cambia a fixed automáticamente en el JS */
+        }
+
+        /* --- MODAL DE ÉXITO --- */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            display: none; /* Se activa con JS */
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            color: #333;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .modal-content h1 {
+            color: #ff4d6d;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="main-title">Iris...</h1>
+        <h2>Ya que llegamos hasta aquí...</h2>
+        <h2 style="font-size: 2.2rem; font-weight: 600;">¿Quieres ser mi novia? ❤️</h2>
+
+        <div class="buttons">
+            <button id="yesBtn">¡SÍ! 😍</button>
+            <button id="noBtn">No 🥺</button>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h1>¡SABÍA QUE DIRÍAS QUE SÍ! ❤️</h1>
+            <p>Prometo hacerte muy feliz y cuidar siempre de nosotros.</p>
+            <button onclick="window.location.href='index.html'" style="margin-top: 20px; background: #333; color: white;">Volver al inicio</button>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const modal = document.getElementById('successModal');
+
+        // Lógica para que el botón "No" se escape
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - 120);
+            const y = Math.random() * (window.innerHeight - 60);
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        });
+
+        // Lógica para el botón "Sí"
+        yesBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+    </script>
+</body>
+</html>
